@@ -1,4 +1,3 @@
-<!-- Chat in 10 lines of JavaScript code using PubNub JavaScript V4 SDK -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -8,7 +7,7 @@
         <meta name="description" content="Example of a JavaScript chat app using PubNub JavaScript V4 SDK.">
   		<meta name="keywords" content="JavaScript,PubNub,Chat,chat-room,chatting,SDK,PubSub-sdk,tutorial">
         <meta name="author" content="Chandler Mayo">
-        <title>Chat</title>
+        <title>Meme Chat</title>
     </head>
     <body>
         <p>Enter chat and press enter.</p>
@@ -18,7 +17,7 @@
 
         <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.23.0.min.js"></script>
         <script>(function(){
-        	var pubnub = new PubNub({publishKey : 'demo',subscribeKey : 'demo'}); // Your PubNub keys here. Get them from https://dashboard.pubnub.com.
+        	var pubnub = new PubNub({publishKey : 'pub-c-b4f773ae-2d7a-4c52-83f9-8253aab4ab20',subscribeKey : 'sub-c-0355cf42-2b7d-11eb-a9aa-e23bcc63a965'}); // Your PubNub keys here. Get them from https://dashboard.pubnub.com.
         	var box = document.getElementById("box"), input = document.getElementById("input"), channel = 'chat';
         	pubnub.subscribe({channels: [channel]}); // Subscribe to a channel.
         	pubnub.addListener({message: function(m) {
