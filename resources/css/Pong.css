@@ -6,7 +6,6 @@
     text-align: center;
     background-color: black;
     color: white;
-    pointer-events: none;
 }
 
 .Controls2 {
@@ -18,7 +17,6 @@
     padding: 20px 50px;
     background-color: black;
     color: white;
-    pointer-events: none;
 }
 
 .space {
