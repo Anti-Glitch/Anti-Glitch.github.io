@@ -25,6 +25,10 @@
     const PADDLE_1_SPEED_Y = 100;
     const PADDLE_HEIGHT = 100;
     const PADDLE_THICKNESS = 10;
+
+    var timer_min = 0;
+    var timer_sec = 0;
+    var timer_milisec = 0;
     
     function calculateMousePos (evt) {
         var rect = canvas.getBoundingClientRect();
@@ -37,10 +41,29 @@
         };
     }
 
+    function handleTimer () {
+        if (showingWinScreen == false) {
+            if (timer_milisec <= 100) {
+                timer_milisec++;
+            } else if (timer_milisec >= 100){
+                timer_milisec = 0;
+                timer_sec++;
+            } else if (timer_sec >= 60) {
+                timer_sec = 0;
+                timer_min++;
+            }
+            
+        }
+        
+    }
+
     function handleMouseClick () {
         if(showingWinScreen) {
             player1Score = 0;
             player2Score = 0;
+            timer_milisec = 0;
+            timer_sec = 0;
+            timer_min = 0;
             showingWinScreen = false;
         }
     }
@@ -54,6 +77,10 @@
             moveEverything();
             drawEverything();
         }, 1000/framesPerSecond)
+
+        setInterval(function () {
+            handleTimer();
+        }, 10)
 
         canvas.addEventListener('mousedown', handleMouseClick);
 
@@ -156,14 +183,19 @@
         //Black Canvas
         colorRect(0, 0, canvas.width, canvas.height, 'black');
 
+        canvasContext.fillStyle = 'white';
+        canvasContext.fillText(timer_min + ' : ' + timer_sec + ' : ' + timer_milisec, 400, 100);
+
         //Win Screen
         if(showingWinScreen) {
+            canvasContext.fillStyle = 'white';
+            canvasContext.fillText(player1Score + ' : ' + player2Score, 425, 150);
             if(player1Score >= WINNING_SCORE) {
                 canvasContext.fillStyle = 'white';
                 canvasContext.fillText('You have been spared by flathead Ape Louis...for now', 300, 200);
             } else if (player2Score >= WINNING_SCORE){
                 canvasContext.fillStyle = 'white';
-                canvasContext.fillText('Flathead Ape Louis eats you.', 37, 200);
+                canvasContext.fillText('Flathead Ape Louis eats you.', 370, 200);
             }
             canvasContext.fillStyle = 'white';
             canvasContext.fillText('click to continue', canvas.width/2, canvas.height/2)
