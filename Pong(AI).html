@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> 
     <title>Pong(ish)</title>
-    <link rel = "stylesheet" href = "resources/css/Pong.css">
 </head>
 
 <script>
@@ -13,6 +12,7 @@
     var ballY = 50;
     var ballSpeedX = 10;
     var ballSpeedY = 4;
+    var exBallSpeed = 1;
 
     player1Score = 0;
     player2Score = 0;
@@ -86,8 +86,8 @@
 
         canvas.addEventListener('mousemove',
         function(evt) {
-            var mousePos = calculateMousePos(evt);
-            paddle1Y = mousePos.y-(PADDLE_HEIGHT/2);
+            //var mousePos = calculateMousePos(evt);
+            //paddle1Y = mousePos.y-(PADDLE_HEIGHT/2);
         });
     }
 
@@ -105,9 +105,18 @@
     function computerMovement () {
         var paddle2YCenter = paddle2Y + (PADDLE_HEIGHT/2);
         if(paddle2YCenter < ballY - 35) {
-            paddle2Y += 6;
+            paddle2Y += 15;
         } else if (paddle2YCenter > ballY + 35) {
-            paddle2Y -= 6;
+            paddle2Y -= 15;
+        }
+    }
+
+    function computer2Movement () {
+        var paddle1YCenter = paddle1Y + (PADDLE_HEIGHT/2);
+        if(paddle1YCenter < ballY - 35) {
+            paddle1Y += 17;
+        } else if (paddle1YCenter > ballY + 35) {
+            paddle1Y -=17;
         }
     }
 
@@ -117,9 +126,18 @@
         }
 
         computerMovement();
+        computer2Movement();
 
-        ballX = ballX + ballSpeedX;
-        ballY = ballY + ballSpeedY;
+        ballX = ballX + ballSpeedX * exBallSpeed;
+        ballY = ballY + ballSpeedY * exBallSpeed;
+
+        if (ballY < 5 && ballY > -5) {
+            ballY = ballyY * 2;
+        }
+
+        if (ballX < 5 && ballX > -5) {
+            ballX = ballyX * 2;
+        }
 
         if (ballY < 0) {
             ballSpeedY = -ballSpeedY;
@@ -184,7 +202,7 @@
         colorRect(0, 0, canvas.width, canvas.height, 'black');
 
         canvasContext.fillStyle = 'white';
-        canvasContext.fillText(timer_min + ' : ' + timer_sec + ' : ' + timer_milisec, 385, 100);
+        canvasContext.fillText(timer_min + ' : ' + timer_sec + ' : ' + timer_milisec, 400, 100);
 
         //Win Screen
         if(showingWinScreen) {
@@ -192,10 +210,10 @@
             canvasContext.fillText(player1Score + ' : ' + player2Score, 425, 150);
             if(player1Score >= WINNING_SCORE) {
                 canvasContext.fillStyle = 'white';
-                canvasContext.fillText('You have been spared by flathead Ape Louis...for now', 300, 200);
+                canvasContext.fillText('Computer 1 Wins', 400, 200);
             } else if (player2Score >= WINNING_SCORE){
                 canvasContext.fillStyle = 'white';
-                canvasContext.fillText('Flathead Ape Louis eats you.', 370, 200);
+                canvasContext.fillText('Computer 2 Wins', 400, 200);
             }
             canvasContext.fillStyle = 'white';
             canvasContext.fillText('click to continue', canvas.width/2, canvas.height/2)
@@ -205,7 +223,7 @@
         //Draw Net
         drawNet();
 
-        //Player Paddle
+        //Computer2 Paddle
         colorRect(0, paddle1Y, PADDLE_THICKNESS, PADDLE_HEIGHT, 'white');
 
         //Computer Paddle
@@ -238,15 +256,6 @@
 
 <body>
     <canvas id = "gameCanvas" width = "800" height = "600"></canvas>
-    <button class = "Controls" onclick="paddle1Down(PADDLE_1_SPEED_Y)">
-        ^
-    </button>
-
-    <h1 class = "space"> </h1>
-
-    <button class = "Controls2" onclick="paddle1Up(PADDLE_1_SPEED_Y)">
-            v
-    </button>
 
     
 </body>

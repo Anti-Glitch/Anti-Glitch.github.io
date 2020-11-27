@@ -9,14 +9,15 @@
 
 <script>
     var canvasContext;
-    var ballX = 50;
-    var ballY = 50;
-    var ballSpeedX = 10;
-    var ballSpeedY = 4;
+    var ballX = 400;
+    var ballY = 300;
+    var ballSpeedX = -10;
+    var ballSpeedY = 0;
+    var exBallSpeed = 1;
 
     player1Score = 0;
     player2Score = 0;
-    const WINNING_SCORE = 3;
+    const WINNING_SCORE = 10;
 
     var showingWinScreen = false;
 
@@ -72,6 +73,11 @@
         canvas = document.getElementById('gameCanvas');
         canvasContext = canvas.getContext('2d');
 
+        var framesPerSecond2 = 60;
+        setInterval(function() {
+            moveComputer();
+        }, 1000/framesPerSecond2)
+
         var framesPerSecond = 30;
         setInterval(function() {
             moveEverything();
@@ -96,8 +102,16 @@
             player2Score >= WINNING_SCORE) {
                 showingWinScreen = true;
         }
+        exBallSpeed = 1;
+        ballSpeedY = 0;
 
-        ballSpeedX = -ballSpeedX;
+        if (ballSpeedX >= 0) {
+            ballSpeedX = 10;
+        } else {
+            ballSpeedX = -10;
+        }
+        
+        
         ballX = canvas.width/2;
         ballY = canvas.height/2;
     }
@@ -105,10 +119,14 @@
     function computerMovement () {
         var paddle2YCenter = paddle2Y + (PADDLE_HEIGHT/2);
         if(paddle2YCenter < ballY - 35) {
-            paddle2Y += 6;
+            paddle2Y += 6 * exBallSpeed;
         } else if (paddle2YCenter > ballY + 35) {
-            paddle2Y -= 6;
+            paddle2Y -= 6 * exBallSpeed;
         }
+    }
+
+    function moveComputer () {
+        computerMovement();
     }
 
     function moveEverything () {
@@ -116,7 +134,7 @@
             return;
         }
 
-        computerMovement();
+        
 
         ballX = ballX + ballSpeedX;
         ballY = ballY + ballSpeedY;
@@ -133,6 +151,7 @@
             //reset ball's position to center
             if (ballY > paddle1Y &&
                 ballY < paddle1Y + PADDLE_HEIGHT) {
+                    exBallSpeed += 0.2;
                     ballSpeedX = -ballSpeedX;
 
                     var deltaY = ballY 
@@ -150,6 +169,7 @@
             //reset ball's position to center
             if (ballY > paddle2Y &&
                 ballY < paddle2Y + PADDLE_HEIGHT) {
+                    exBallSpeed += 0.2;
                     ballSpeedX = -ballSpeedX;
 
                     var deltaY = ballY 
