@@ -3,7 +3,7 @@
 }
 .Title {
     color : red;
-    font-size : 100px;
+    font-size : 95px;
 }
 
 .banner {
@@ -98,4 +98,8 @@
 
 .list-invisible {
     list-style: none;
+}
+
+.Skit-Text {
+    font-size: 20px;
 }
