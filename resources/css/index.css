@@ -57,10 +57,10 @@
     text-decoration: none;
     color: white;
     display: block;
+    margin-left: 1%px;
 }
 
 .Maskot-Text {
-    display: block;
     font-family: 'Playfair Display', serif;
     font-size: 14px;
     margin-left: 90%;
