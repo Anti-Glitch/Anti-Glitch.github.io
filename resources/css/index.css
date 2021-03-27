@@ -18,13 +18,6 @@
     float: left;
 }
 
-@viewport {
-    zoom: 1.0;
-}
-@-ms-viewport {
-    zoom: 1.0;
-}
-
 .navbar li a {
     word-spacing: 3px;
     font-size: 24px;
