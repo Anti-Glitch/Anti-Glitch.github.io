@@ -87,7 +87,7 @@
 
 .MOTW-txt {
     font-size: 50px;
-    color: red;
+    color: darkblue;
 }
 
 .More-Space {
@@ -102,7 +102,7 @@
     font-size: 30px;
 }
 
-.Ad-Text a {
+a {
     color: red;
 }
 
@@ -111,7 +111,7 @@ body {
 }
 
 .Top .Subtitle {
-    color: #004d00;
+    color: darkblue;
 }
 
 body {
