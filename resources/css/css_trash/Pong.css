@@ -1,0 +1,24 @@
+.Controls {
+    font-size: 200px;
+    float: left;
+    width: "50px";
+    padding: 20px 50px;
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+.Controls2 {
+    font-size: 200px;
+    float: left;
+    margin-top: -275px;
+    margin-left: -6px;
+    width: "500px";
+    padding: 20px 50px;
+    background-color: black;
+    color: white;
+}
+
+.space {
+    font-size:0px;
+}
