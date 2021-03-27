@@ -18,6 +18,13 @@
     float: left;
 }
 
+@viewport {
+    zoom: 1.0;
+}
+@-ms-viewport {
+    zoom: 1.0;
+}
+
 .navbar li a {
     word-spacing: 3px;
     font-size: 24px;
@@ -60,16 +67,11 @@
 }
 
 .Maskot-Text {
-    text-align: end;
-    display: block;
     font-family: 'Playfair Display', serif;
     font-size: 14px;
-    line-height: 14px;
-    margin-left: 1200px;
+    margin-left: 90%;
     margin-top: -38px;
     padding: 10px;
-    top: 80px;
-    width: 110px;
     background-color: black;
     opacity: 0.75;
     color: white;
