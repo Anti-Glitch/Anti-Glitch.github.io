@@ -60,9 +60,11 @@
 }
 
 .Maskot-Text {
+    text-align: end;
+    display: block;
     font-family: 'Playfair Display', serif;
     font-size: 14px;
-    margin-left: 1200;
+    margin-left: 1200px;
     margin-top: -38px;
     padding: 10px;
     background-color: black;
