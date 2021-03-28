@@ -1,9 +1,3 @@
-@media screen and (max-width: 1030px) {
-    .banner {
-        background-size: 100% 40%;
-    }
-}
-
 .navbar {
     padding-bottom: 90px;
 }
@@ -43,11 +37,10 @@
     font-size: 500%;
 }
 
-.banner {
+.Top {
     background-image: url(../images/Kermit_Background.jfif);
     background-repeat: no-repeat;
-    background-size: 100% 25.5%;
-    background-position-y: 0%;
+    background-size: cover;
 }
 
 #Chat a {
