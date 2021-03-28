@@ -40,8 +40,8 @@
 .banner {
     background-image: url(../images/Kermit_Background.jfif);
     background-repeat: no-repeat;
-    background-size: 100% 23.75%;
-    background-position-y: 2.6%;
+    background-size: 100% 22.75%;
+    background-position-y: 4%;
 }
 
 #Chat a {
@@ -63,7 +63,7 @@
     font-family: 'Playfair Display', serif;
     font-size: 75%;
     margin-left: 86%;
-    margin-top: -5.5%;
+    margin-top: -3.5%;
     padding: 14px;
     background-color: black;
     opacity: 0.75;
