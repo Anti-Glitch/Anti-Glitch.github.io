@@ -40,7 +40,7 @@
 .banner {
     background-image: url(../images/Kermit_Background.jfif);
     background-repeat: no-repeat;
-    background-size: 100% 23%;
+    background-size: 100% 25.5%;
     background-position-y: 0%;
 }
 
@@ -61,7 +61,7 @@
 
 .Maskot-Text {
     font-family: 'Playfair Display', serif;
-    font-size: 75%;
+    font-size: 90%;
     margin-left: 86%;
     margin-top: -3.5%;
     padding: 14px;
