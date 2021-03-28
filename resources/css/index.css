@@ -40,8 +40,8 @@
 .banner {
     background-image: url(../images/Kermit_Background.jfif);
     background-repeat: no-repeat;
-    background-size: 100% 22.75%;
-    background-position-y: 4%;
+    background-size: 100% 23%;
+    background-position-y: 0%;
 }
 
 #Chat a {
@@ -55,7 +55,7 @@
 
 .Maskot-Text a {
     text-decoration: none;
-    color: blue;
+    color: white;
     display: block;
 }
 
