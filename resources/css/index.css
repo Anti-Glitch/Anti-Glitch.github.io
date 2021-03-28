@@ -1,3 +1,19 @@
+@media screen and (max-width: 1024px){
+
+    .Maskot-Text {
+        font-family: 'Playfair Display', serif;
+        font-size: 14px;
+        margin-left: 90%;
+        margin-top: -38px;
+        padding: 10px;
+        background-color: black;
+        opacity: 0.75;
+        color: white;
+        text-align: center;
+    }
+    
+}
+
 .navbar {
     padding-bottom: 90px;
 }
@@ -57,7 +73,6 @@
     text-decoration: none;
     color: white;
     display: block;
-    margin-left: 1%px;
 }
 
 .Maskot-Text {
